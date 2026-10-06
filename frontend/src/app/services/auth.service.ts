@@ -1,0 +1,2 @@
+import {Injectable} from '@angular/core';import {ApiService} from './api.service';import {tap} from 'rxjs/operators';
+@Injectable({providedIn:'root'}) export class AuthService{user:any=JSON.parse(localStorage.getItem('user')||'null');constructor(private api:ApiService){}login(email:string,password:string){return this.api.post('/auth/login',{email,password}).pipe(tap((d:any)=>{localStorage.setItem('token',d.token);localStorage.setItem('user',JSON.stringify(d.user));this.user=d.user}))}logout(){localStorage.clear();this.user=null}isLogged(){return !!this.user}}

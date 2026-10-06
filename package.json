@@ -1,0 +1,1 @@
+{"name":"hrms-mean-complete","private":true,"scripts":{"backend":"npm --prefix backend run dev","frontend":"npm --prefix frontend start"}}

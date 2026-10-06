@@ -1,0 +1,2 @@
+import bcrypt from 'bcryptjs'; import jwt from 'jsonwebtoken'; import User from '../models/User.js';
+export async function login(req,res){const {email,password}=req.body; const u=await User.findOne({email}); if(!u||!(await bcrypt.compare(password,u.password)))return res.status(401).json({message:'Invalid email or password'}); const token=jwt.sign({id:u._id},process.env.JWT_SECRET,{expiresIn:'1d'}); res.json({token,user:{id:u._id,name:u.name,email:u.email,role:u.role}});}

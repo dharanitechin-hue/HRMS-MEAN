@@ -1,0 +1,1 @@
+import express from 'express';import {login} from '../controllers/authController.js';const r=express.Router();r.post('/login',login);export default r;

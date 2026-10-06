@@ -1,0 +1,1 @@
+import express from 'express';import * as c from '../controllers/payrollController.js';import {protect,adminOnly} from '../middleware/authMiddleware.js';const r=express.Router();r.get('/',protect,adminOnly,c.all);r.get('/my',protect,c.mine);r.post('/',protect,adminOnly,c.create);r.put('/:id',protect,adminOnly,c.update);export default r;

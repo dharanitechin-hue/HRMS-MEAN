@@ -1,0 +1,1 @@
+import express from 'express';import * as c from '../controllers/attendanceController.js';import {protect,adminOnly} from '../middleware/authMiddleware.js';const r=express.Router();r.get('/',protect,adminOnly,c.all);r.get('/my',protect,c.mine);r.post('/checkin',protect,c.checkin);r.post('/checkout',protect,c.checkout);export default r;

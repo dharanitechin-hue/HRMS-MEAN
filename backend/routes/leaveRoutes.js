@@ -1,0 +1,1 @@
+import express from 'express';import * as c from '../controllers/leaveController.js';import {protect,adminOnly} from '../middleware/authMiddleware.js';const r=express.Router();r.get('/',protect,adminOnly,c.all);r.get('/my',protect,c.mine);r.post('/',protect,c.create);r.put('/:id/status',protect,adminOnly,c.status);export default r;

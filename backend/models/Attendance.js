@@ -1,0 +1,1 @@
+import mongoose from 'mongoose'; const schema=new mongoose.Schema({employee:{type:mongoose.Schema.Types.ObjectId,ref:'Employee',required:true},date:{type:Date,required:true},checkIn:Date,checkOut:Date,status:{type:String,enum:['Present','Absent','Late'],default:'Present'}},{timestamps:true}); schema.index({employee:1,date:1}); export default mongoose.model('Attendance',schema);

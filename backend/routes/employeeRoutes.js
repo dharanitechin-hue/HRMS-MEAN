@@ -1,0 +1,1 @@
+import express from 'express';import * as c from '../controllers/employeeController.js';import {protect,adminOnly} from '../middleware/authMiddleware.js';const r=express.Router();r.use(protect,adminOnly);r.route('/').get(c.list).post(c.create);r.route('/:id').get(c.one).put(c.update).delete(c.remove);export default r;

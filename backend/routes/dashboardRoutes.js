@@ -1,0 +1,1 @@
+import express from 'express';import {admin} from '../controllers/dashboardController.js';import {protect,adminOnly} from '../middleware/authMiddleware.js';const r=express.Router();r.get('/admin',protect,adminOnly,admin);export default r;

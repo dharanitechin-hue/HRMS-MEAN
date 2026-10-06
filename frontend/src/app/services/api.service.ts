@@ -1,0 +1,2 @@
+import {Injectable} from '@angular/core';import {HttpClient} from '@angular/common/http';
+@Injectable({providedIn:'root'}) export class ApiService{base='http://localhost:5000/api';constructor(private http:HttpClient){}get(p:string){return this.http.get<any>(this.base+p)}post(p:string,b:any={}){return this.http.post<any>(this.base+p,b)}put(p:string,b:any){return this.http.put<any>(this.base+p,b)}delete(p:string){return this.http.delete<any>(this.base+p)}}
